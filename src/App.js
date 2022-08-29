@@ -10,52 +10,31 @@ import SuperSentai from './pages/superSentai'
 import Series from './pages/series'
 import Movies from './pages/movies'
 import Toys from './pages/toys'
-
-
-
-
-   let component
-   switch (window.location.pathname) {
-    case "/":
-        component = <Home />
-        break
-    case "/kamen-rider":
-        component = <KamenRider />
-        break
-    case "/super-sentai":
-        component = <SuperSentai />
-        break
-    case "/toy":
-        component = <Toys />
-        break
-    case "/series":
-        component = <Series />
-        break
-    case "/movie":
-        component = <Movies />
-        break
-    case "/user":
-        component = <User />
-        break
-    case "/login":
-        component = <Login />
-        break     
-    case "/register":
-        component = <Register />
-        break   
-   }
-   
-    const App = () => {
-        return(
-            <>
-                <AuthProvider>
-                    <Nav />
-                    <div className='container'>{component}</div>
-                </AuthProvider>
-            </>
-        )
+import { Route , Routes } from 'react-router-dom';
+ 
+const App = () => {
+    return(
+        <>
+            <AuthProvider>
+                <Nav />
+                <div className='container'>
+                    <Routes>
+                        <Route path="/" element={<Home />} />
+                        <Route path="/kamen-rider" element={<KamenRider />} />
+                        <Route path="/super-sentai" element={<SuperSentai />} />
+                        <Route path="/toys" element={<Toys />} />
+                        <Route path="/series" element={<Series />} />
+                        <Route path="/movies" element={<Movies />} />
+                        <Route path="/user" element={<User />} />
+                        <Route path="/login" element={<Login />} />
+                        <Route path="/register" element={<Register />} />
+                    </Routes>
+                </div>
+            </AuthProvider>
+        </>
+    )
 }
 
 
-export default App
+export default App;
 

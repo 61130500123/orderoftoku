@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { AuthContext } from "./Auth/Auth";
 import firebaseConfig from "./config";
 import Header from "./header/Header";
+import { Link, useMatch, useResolvedPath } from "react-router-dom";
 
 const Nav = () => {
     const { currentUser } = useContext( AuthContext );
@@ -43,11 +44,16 @@ const Nav = () => {
         )
         }
     }
-    function CustomLink({href,children,...props}){
-        const path = window.location.pathname
+
+    function CustomLink({ to,children,...props}){
+        const resolvePath = useResolvedPath(to)
+        const isActive = useMatch({ path: resolvePath.pathname, end:true })
+
         return(
-            <li className={path === href ? "active" : ""}>
-                <a href={href} {...props}>{children}</a>
+            <li className={path === Link ? "active" : ""}>
+                <Link to={to} {...props}>
+                    {children}
+                </Link>
             </li>
         )
     }
