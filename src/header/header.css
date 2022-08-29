@@ -1,0 +1,10 @@
+.head{
+    cursor: pointer;
+    padding: 0;
+}
+
+
+.head .logo img{
+    width: 1920px;
+    object-fit: contain;
+}

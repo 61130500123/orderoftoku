@@ -1,0 +1,193 @@
+*{
+  padding: 0;
+  margin: 0;
+}
+body{
+  background-color: #282828;
+  box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
+}
+img{
+  width: 1920px;
+  object-fit: contain;
+}
+.menu-bar{
+  margin: 10px;
+  background-color: #ff0606;
+  text-align: left;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.menu-bar ul{
+  display: inline-flex;
+  list-style: none;
+  text-align: center;
+  font-size: 15px;
+  color: rgb(39, 39, 39);
+}
+.menu-bar ul li{
+  width: 120px;
+  margin: 10px;
+  padding: 10px;
+}
+.menu-bar ul li a{
+  text-decoration: none;
+  color: rgb(255, 255, 255);
+}
+.menu-bar .fa{
+  margin-right: 8px;
+}
+.sub-menu-news{
+  display: none;
+}
+.menu-bar ul li:hover .sub-menu-news{
+  display: block;
+  position: absolute;
+  background: #ff0606;
+  margin-top: 15px;
+  margin-left: -15px;
+  z-index: 5;
+}
+.menu-bar ul li:hover .sub-menu-news ul{
+  display: block;
+  margin:  10px;
+}
+.menu-bar ul li:hover .sub-menu-news ul li{
+  width: 180px;
+  padding: 10px;
+  border-bottom: 1px solid rgb(0, 0, 0);
+  background: transparent;
+  border-radius: 0;
+  text-align: left;
+}
+.menu-bar ul li:hover .sub-menu-news ul li:last-child{
+  border-bottom: none;
+}
+.menu-bar ul li:hover .sub-menu-news ul li a:hover{
+  color: #282828;
+}
+.sub-menu-thread{
+  display: none;
+}
+.menu-bar ul li:hover .sub-menu-thread{
+  display: block;
+  position: absolute;
+  background: #ff0606;
+  margin-top: 15px;
+  margin-left: -15px;
+  z-index: 5;
+}
+.menu-bar ul li:hover .sub-menu-thread ul{
+  display: block;
+  margin:  10px;
+}
+.menu-bar ul li:hover .sub-menu-thread ul li{
+  width: 180px;
+  padding: 10px;
+  border-bottom: 1px solid rgb(0, 0, 0);
+  background: transparent;
+  border-radius: 0;
+  text-align: left;
+}
+.menu-bar ul li:hover .sub-menu-thread ul li:last-child{
+  border-bottom: none;
+}
+.menu-bar ul li:hover .sub-menu-thread ul li a:hover{
+  color: #282828;
+}
+.searchform{
+  display: flex;
+  position: relative;
+  cursor: pointer;
+  align-items: center;
+  width: 600px;
+  background: #fff;
+  padding: 4px;
+  border-radius: 0.5rem;
+  color: #ff0606;
+}
+.searchform input{
+  font-size: 20px;
+  margin: 0 0.5rem 0 0.5rem;
+  width: 100%;
+  border: none;
+  outline: none;
+  background: #fff;
+}
+.searchform .fa{
+  font-size: 20px;
+}
+::placeholder{
+  color: rgb(65, 65, 65);
+}
+.loginbar a{
+  text-decoration: none;
+  font-size: 20px;
+  text-align: center;
+  color: #fff;
+  font-weight: bold;
+  position: relative;
+  right: 40px;
+  top: 0px;
+}
+.loginbar p a{
+  text-decoration: none;
+  font-size: 15px;
+  text-align: center;
+  color: #ff0606;
+  font-weight: bold;
+  position: relative;
+  right: 0px;
+  top: 0px;
+}
+.loginbar form{
+  position: absolute;
+  right: 28px;
+  width: 250px;
+  height: 250px;
+  background: #ffffff;
+  border-radius: 20px;
+  margin-top: 22px;
+  display: none;
+}
+.loginbar form h1{
+  height: 40px;
+  margin-top: 20px;
+}
+.loginbar form input{
+  padding: 5px 0;
+  padding-right: 50px;
+  margin: 6px;
+  font-weight: bold;
+}
+.loginbar form p{
+  line-height: 15px;
+  margin-top: 5px;
+}
+.loginbar form button{
+  padding: 5px;
+  border-radius: 5px;
+  font-weight: bold;
+}
+.arrow-up{
+  width: 0;
+  height: 0;
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+  border-bottom: 20px solid #ffffff;
+  position: relative;
+  top: 234px;
+  right: 125px;
+  display: none;
+}
+.loginbar:hover form{
+  position: absolute;
+  display: table;
+  z-index: 5;
+}
+.loginbar:hover .arrow-up{
+  position: absolute;
+  bottom: 100%;
+  display: table;
+}
