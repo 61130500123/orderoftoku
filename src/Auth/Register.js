@@ -1,6 +1,6 @@
 import React,{ useState } from "react"
 import { Navigate } from 'react-router-dom'
-import firebaseConfig from "../config"
+import firebase from "../config"
 
 const Register = () =>  {
     const [currentUser,setCurrentUser] = useState(null);
@@ -9,7 +9,7 @@ const Register = () =>  {
         e.preventDefault();
         const { email, password } = e.target.elements;
         try{
-            firebaseConfig.auth().createUserWithEmailAndPassword(email.value,password.value);
+            firebase.auth().createUserWithEmailAndPassword(email.value,password.value);
             setCurrentUser(true);
         }catch(error){
             alert(error);

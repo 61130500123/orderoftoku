@@ -1,7 +1,7 @@
 import React, {useContext } from "react"
 import { Navigate } from "react-router-dom"
 import { AuthContext } from "./Auth"
-import firebaseConfig from "../config"
+import firebase from "../config"
 
 const Login = () => {
     
@@ -11,7 +11,7 @@ const Login = () => {
         const {email,password } = e.target.elements;
 
         try{
-            firebaseConfig.auth().signInWithEmailAndPassword(email.value,password.value);
+            firebase.auth().signInWithEmailAndPassword(email.value,password.value);
 
         }catch(error){
             alert(error);
