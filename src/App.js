@@ -60,7 +60,7 @@ function App() {
                     <Route path="/series" exact component={Series} />
                     <Route path="/movies" exact component={Movies} />
                     <Route path="/user" exact component={User} />
-                    <Route path="/post/:postName" exact component={ShowPostDetail} />
+                    <Route path="/post/:postName" element={<ShowPostDetail />} />
                 </Routes>
             </div>
             <NewPost onClick={openModal}>Create Post</NewPost>

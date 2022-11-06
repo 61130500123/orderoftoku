@@ -1,13 +1,15 @@
 import { useState, useEffect } from "react";
 import { ResponsiveContainer } from 'recharts';
 import firebase from "./config";
-import { useParams } from "react-router-dom";
+import { useParams, Link, useNavigate } from "react-router-dom";
 import { PostDetailContent, PostDetailWrapper } from "./ShowPostDetailStyle";
 import { InputInfo } from "./Reuse/InputBox";
 import { HeaderNFooter, SimpleButton } from "./Reuse/Content";
-// import Delete from "./Delete";
+import Delete from "./Delete";
 
 const ShowPostDetail = () => {
+
+    const history = useNavigate()
 
     const { postName } = useParams();
     const [details, setDetails] = useState({});
@@ -76,6 +78,17 @@ const ShowPostDetail = () => {
                 <HeaderNFooter>
                     <h1>Post Details</h1>
                     <SimpleButton type="button" onClick={() => setInputsDisabled(false)}>Edit</SimpleButton>
+                    <Link to={`/post/${details.post_name}?Delete`}>
+                    <SimpleButton type="button" onClick={() => {
+                        const confirmBox = window.confirm(
+                            "Do you really want to delete this Event?"
+                        )
+                        if (confirmBox === true) {
+                            Delete(details.post_name)
+                            history(-1)
+                        }
+                    }}>Delete</SimpleButton>
+                    </Link>
                 </HeaderNFooter>
                 <PostDetailContent>
                     <h2>รายละเอียด</h2>
@@ -88,7 +101,7 @@ const ShowPostDetail = () => {
                         <textarea id="description" name="description" rows="4" defaultValue={details.description} onChange={onChange} disabled={inputsDisabled}></textarea>
                     </InputInfo>
                 </PostDetailContent>
-        
+
                 <HeaderNFooter>
                     <SimpleButton type="submit" disabled={inputsDisabled}>Submit</SimpleButton>
                 </HeaderNFooter>
