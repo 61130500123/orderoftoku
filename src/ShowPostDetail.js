@@ -40,7 +40,7 @@ const ShowPostDetail = () => {
                     .update({
                         ...post
                     });
-                window.location.reload()
+                history(-1)
             }
 
             if (details["post_name"] != post.post_name) {
@@ -51,8 +51,8 @@ const ShowPostDetail = () => {
                     .set({
                         ...post
                     });
-                // await Delete(details["post_name"])
-                window.location.reload()
+                await Delete(details["post_name"])
+                history(-1)
             }
 
 
@@ -98,7 +98,7 @@ const ShowPostDetail = () => {
                     </InputInfo>
                     <InputInfo>
                         <label for="detail">คำอธิบาย</label>
-                        <textarea id="description" name="description" rows="4" defaultValue={details.description} onChange={onChange} disabled={inputsDisabled}></textarea>
+                        <textarea id="description" name="post_description" rows="4" defaultValue={details.post_description} onChange={onChange} disabled={inputsDisabled}></textarea>
                     </InputInfo>
                 </PostDetailContent>
 

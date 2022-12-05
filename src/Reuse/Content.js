@@ -27,3 +27,10 @@ export const SimpleButton = styled.button`
     background-color: #FF4512;
     }
 `
+
+export const InputFieldName = styled.p`
+    color: white;
+`
+export const HeaderFieldName = styled.h1`
+    color: white;
+`

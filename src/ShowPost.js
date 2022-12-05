@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom'
 function ShowPost(){
     const [posts, setPosts] = useState([]);
 
-    const ref = firebase.firestore().collection('post');
+    const ref = firebase.firestore().collection('post').orderBy('timestamp', 'desc');
 
     function getInfo() {
         ref.onSnapshot((querySnapshot) => {

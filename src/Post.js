@@ -1,5 +1,6 @@
 import React, { useRef, useEffect, useCallback, useState } from 'react'
 import firebase from './config';
+import { InputFieldName, HeaderFieldName } from "./Reuse/Content";
 // import { useNavigate } from "react-router-dom";
 
 const PostModal = ({ showModal, setShowModal }) => {
@@ -51,7 +52,8 @@ const PostModal = ({ showModal, setShowModal }) => {
                 .set({
                     post_name: post.post_name,
                     post_pic: post_pic,
-                    post_description: post.description 
+                    post_description: post.post_description,
+                    timestamp: Date.now()
                 });
             // history.push("/")
             // setTimeout(close(), 2000)
@@ -117,12 +119,12 @@ const PostModal = ({ showModal, setShowModal }) => {
             {showModal ? (
                 <div>
                 <form onSubmit={onSubmit.bind(this, post)}>
-                    <h1>Create New Post</h1>
-                    <label>Topic</label>
+                    <HeaderFieldName>Create New Post</HeaderFieldName>
+                    <InputFieldName>Topic</InputFieldName>
                     <input type="text" id="post_name" name="post_name" onChange={onChange} required />
-                    <label>IMG</label>
+                    <InputFieldName>IMG</InputFieldName>
                     <input type="file" id="fileUpload" onChange={handleImageChange}/>
-                    <label>description</label>
+                    <InputFieldName>description</InputFieldName>
                     <input type="text" id="post_description" name="post_description" onChange={onChange} required />
                     <div>
                         <button type="sumbit">Create New Post</button>
